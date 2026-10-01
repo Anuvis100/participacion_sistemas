@@ -1,0 +1,13 @@
+# Base de datos generada
+*.db
+
+# Archivos temporales de Python
+__pycache__/
+*.pyc
+
+# Configuración de VS Code
+.vscode/
+
+# Carpetas locales (no subir a GitHub)
+capturas/
+docs/
