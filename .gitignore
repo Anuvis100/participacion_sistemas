@@ -11,3 +11,7 @@ __pycache__/
 # Carpetas locales (no subir a GitHub)
 capturas/
 docs/
+
+# Entorno virtual
+venv/
+env/
