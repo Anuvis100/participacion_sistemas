@@ -15,3 +15,15 @@ conexion.execute("""
 
 conexion.commit()
 print("Tabla 'libros' creada exitosamente")
+
+
+conexion.execute("""
+    CREATE TABLE IF NOT EXISTS socios (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        nombre TEXT NOT NULL,
+        apellido TEXT NOT NULL,
+        email TEXT NOT NULL
+    )
+""")
+conexion.commit()
+print("Tabla 'socios' creada exitosamente")
