@@ -68,12 +68,6 @@ conexion.execute("""
     VALUES ('Ana', 'Garcia', 'ana.garcia@email.com')
 """)
 
-
-conexion.execute("""
-    INSERT INTO socios (nombre, apellido, email)
-    VALUES ('Ana', 'Garcia', 'ana.garcia@email.com')
-""")
-
 conexion.execute("""
     INSERT INTO socios (nombre, apellido, email)
     VALUES ('Carlos', 'Rodriguez', 'carlos.rodriguez@email.com')
@@ -97,8 +91,19 @@ conexion.execute("""
     VALUES ('2024-11-01', 3, 2)
 """)
 
-
-
-
 conexion.commit()
 print("3 prestamos registrados")
+
+
+
+cursor = conexion.cursor()
+
+print("\n" + "=" * 50)
+print("LISTADO DE LIBROS")
+print("=" * 50)
+cursor.execute("SELECT * FROM libros")
+for fila in cursor.fetchall():
+    print(f"ID: {fila[0]} | {fila[1]} - {fila[2]} ({fila[3]})")
+
+
+
