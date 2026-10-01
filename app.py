@@ -105,5 +105,29 @@ cursor.execute("SELECT * FROM libros")
 for fila in cursor.fetchall():
     print(f"ID: {fila[0]} | {fila[1]} - {fila[2]} ({fila[3]})")
 
+print("\n" + "=" * 50)
+print("LISTADO DE SOCIOS")
+print("=" * 50)
+cursor.execute("SELECT * FROM socios")
+for fila in cursor.fetchall():
+    print(f"ID: {fila[0]} | {fila[1]} {fila[2]} - {fila[3]}")
 
+print("\n" + "=" * 50)
+print("LISTADO DE PRESTAMOS")
+print("=" * 50)
+cursor.execute("SELECT * FROM prestamos")
+for fila in cursor.fetchall():
+    print(f"ID: {fila[0]} | Fecha: {fila[1]} | Libro ID: {fila[2]} | Socio ID: {fila[3]}")
 
+    print("\n" + "=" * 50)
+print("PRESTAMOS DETALLADOS (JOIN)")
+print("=" * 50)
+
+cursor.execute("""
+    SELECT p.id, p.fecha_prestamo, l.titulo, s.nombre, s.apellido
+    FROM prestamos p
+    JOIN libros l ON p.libro_id = l.id
+    JOIN socios s ON p.socio_id = s.id
+""")
+for fila in cursor.fetchall():
+    print(f"Prestamo #{fila[0]} | {fila[1]} | '{fila[2]}' -> {fila[3]} {fila[4]}")
