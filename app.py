@@ -131,3 +131,8 @@ cursor.execute("""
 """)
 for fila in cursor.fetchall():
     print(f"Prestamo #{fila[0]} | {fila[1]} | '{fila[2]}' -> {fila[3]} {fila[4]}")
+
+
+cursor.close()
+conexion.close()
+print("\nCursor y conexion cerrados correctamente")
